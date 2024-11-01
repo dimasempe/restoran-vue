@@ -52,8 +52,8 @@ export default {
   props: ["userName",'roleId'],
   methods: {
     logout() {
-      axios
-        .get("http://localhost:8000/api/auth/logout", {
+      axios 
+        .get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/logout`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         })
         .then(function (response) {

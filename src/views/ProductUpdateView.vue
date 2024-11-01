@@ -72,7 +72,7 @@ export default {
     return {
       userName: "",
       roleId: "",
-      url: "http://localhost:8000/storage/items/",
+      url: `${import.meta.env.VITE_API_BASE_URL}/storage/items/`,
       productId: "",
       item: String,
       successMessage: "",
@@ -98,8 +98,8 @@ export default {
   },
   methods: {
     showItem() {
-      axios
-        .get("http://localhost:8000/api/item/" + this.productId, {
+      axios 
+        .get(`${import.meta.env.VITE_API_BASE_URL}/api/item/${this.productId}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         })
         .then((response) => {
@@ -136,8 +136,8 @@ export default {
       }
       formData.append("_method", "patch");
 
-      axios
-        .post("http://localhost:8000/api/item/" + this.productId, formData, {
+      axios 
+        .post(`${import.meta.env.VITE_API_BASE_URL}/api/item/${this.productId}`, formData, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

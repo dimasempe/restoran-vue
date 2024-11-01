@@ -48,6 +48,7 @@
 import axios from "axios";
 import router from "@/router";
 
+
 export default {
   data() {
     return {
@@ -59,8 +60,8 @@ export default {
     login() {
       // console.log(this.email)
       // console.log(this.password)
-      axios
-        .post("http://localhost:8000/api/auth/login", {
+      axios 
+        .post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/login`, {
           email: this.email,
           password: this.password,
         })

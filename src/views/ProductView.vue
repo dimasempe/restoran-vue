@@ -102,7 +102,7 @@ export default {
       userName: "",
       roleId: "",
       items: [],
-      url: "http://localhost:8000/storage/items/",
+      url: `${import.meta.env.VITE_API_BASE_URL}/storage/items/`,
       currentPage: 0, // Halaman aktif
       itemsPerPage: 10, // Jumlah item per halaman
       searchQuery: "", // Input pencarian
@@ -143,8 +143,8 @@ export default {
   },
   methods: {
     getItems() {
-      axios
-        .get("http://localhost:8000/api/item", {
+      axios 
+        .get(`${import.meta.env.VITE_API_BASE_URL}/api/item`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         })
         .then((response) => {

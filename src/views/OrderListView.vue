@@ -76,8 +76,8 @@ export default {
   },
   methods: {
     getOrders() {
-      axios
-        .get("http://localhost:8000/api/order", {
+      axios 
+        .get(`${import.meta.env.VITE_API_BASE_URL}/api/order`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         })
         .then((response) => {

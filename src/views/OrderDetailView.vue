@@ -104,9 +104,9 @@ export default {
     this.getOrder();
   },
   methods: {
-    getOrder() {
+    getOrder() { 
       axios
-        .get("http://localhost:8000/api/order/" + this.orderId, {
+        .get(`${import.meta.env.VITE_API_BASE_URL}/api/order/${this.orderId}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         })
         .then((response) => {
@@ -123,8 +123,8 @@ export default {
         });
     },
     setAsDone(id){
-        axios
-        .get("http://localhost:8000/api/order/" + id + '/set-as-done', {
+        axios 
+        .get(`${import.meta.env.VITE_API_BASE_URL}/api/order/${id}/set-as-done`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         })
         .then((response) => {
@@ -142,8 +142,8 @@ export default {
         
     },
     setAsPaid(id){
-        axios
-        .get("http://localhost:8000/api/order/" + id + '/payment', {
+        axios 
+        .get(`${import.meta.env.VITE_API_BASE_URL}/api/order/${id}/payment`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         })
         .then((response) => {

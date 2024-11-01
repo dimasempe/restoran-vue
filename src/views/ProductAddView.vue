@@ -53,7 +53,7 @@ export default {
       userName: "",
       roleId: "",
     //   items: [],
-      url: "http://localhost:8000/storage/items/",
+      url: `${import.meta.env.VITE_API_BASE_URL}/storage/items/`,
       name: "",
       price: "",
       successMessage: "",
@@ -91,8 +91,8 @@ export default {
       formData.append("price", this.price);
       formData.append("image", this.file);
 
-      axios
-        .post("http://localhost:8000/api/item", formData, {
+      axios 
+        .post(`${import.meta.env.VITE_API_BASE_URL}/api/item`, formData, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

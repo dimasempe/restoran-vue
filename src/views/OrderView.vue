@@ -150,10 +150,10 @@ import { errorMessages } from "@vue/compiler-core";
 
 export default {
   data() {
-    return {
+    return { 
       userName: "",
       items: [],
-      url: "http://localhost:8000/storage/items/",
+      url: `${import.meta.env.VITE_API_BASE_URL}/storage/items/`,
       keyword: "",
       filteredItems: [],
       roleId: "",
@@ -183,8 +183,8 @@ export default {
       //   let tembus = this //karena this hanya
       //tembus dari satu fungsi, makannya ditembusin lagi
       // (kalau pakai function biasa)
-      axios
-        .get("http://localhost:8000/api/item", {
+      axios 
+        .get(`${import.meta.env.VITE_API_BASE_URL}/api/item`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         })
         .then((response) => {
@@ -284,9 +284,9 @@ export default {
       });
       //   console.log(order_details)
       this.processing = true
-      axios
-        .post(
-          "http://localhost:8000/api/order",
+      axios 
+        .post( 
+          `${import.meta.env.VITE_API_BASE_URL}/api/order`,
           {
             customer_name: this.customerName,
             table_no: this.tableNumber,

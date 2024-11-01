@@ -260,8 +260,8 @@ export default {
   },
   methods: {
     getReport() {
-      axios
-        .get("http://localhost:8000/api/order-report?month=" + this.month, {
+      axios 
+        .get(`${import.meta.env.VITE_API_BASE_URL}/api/order-report?month=${this.month}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         })
         .then((response) => {
